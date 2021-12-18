@@ -1,0 +1,9 @@
+{
+    "titulo" : "Mis Juegos",
+    "navbar_item1": "Inicio",
+    "navbar_item2": "TicTacToe",
+    "navbar_item3": "Trivial",
+    "quiz_title": "El jodido quiz",
+    "tictactoe_title": "El jodido tictactoe",
+    "home_title": "El jodido home"
+}

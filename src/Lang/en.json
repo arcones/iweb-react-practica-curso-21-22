@@ -1,0 +1,9 @@
+{
+    "titulo" : "My games",
+    "navbar_item1": "Home",
+    "navbar_item2": "TicTacToe",
+    "navbar_item3": "Quiz",
+    "quiz_title": "The fucking quiz",
+    "tictactoe_title": "The fucking tictactoe",
+    "home_title": "The fucking home"
+}
