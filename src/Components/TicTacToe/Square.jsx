@@ -1,25 +1,28 @@
-import React from 'react';
+import '../../css/styles.css';
 
-const squareStyle = {
-  height: '100px',
-  width: '100px',
-};
+const Square = (props) => {
 
-export default class Square extends React.Component {
-  constructor(props) {
-    super(props);
-    this.squareClick = this.squareClick.bind(this);
+  const squareStyle = {
+    width: '100px',
+    height: '100px',
+    backgroundColor: '#18363E',
+    color: '#93C4D1',
+    borderRadius: '5px',
+    fontSize: '30px',
+    fontFamily: 'Gabriola'
   }
-  squareClick() {
-    if(this.props.value === "-") {
-      this.props.boardClick(this.props.rowIndex, this.props.columnIndex);
+
+  const squareClick= () => {
+    if (props.value === "-") {
+      props.boardClick(props.rowIndex, props.columnIndex);
     }
   }
-  render() {
-    return(
-      <button style={squareStyle} onClick={this.squareClick} className={this.props.value === "-" ? "clickable" : "no_clickable"}>
-        {this.props.value}
-      </button>
-    );
-  }
+
+  return (
+    <button style={squareStyle} onClick={squareClick} className={props.value === "-" ? "clickable" : "no_clickable"}>
+      {props.value}
+    </button>
+  )
 }
+
+export default Square

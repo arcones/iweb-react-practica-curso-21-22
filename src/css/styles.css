@@ -80,3 +80,9 @@ li:hover {
     font-family: Arial Rounded MT Bold;
     border-radius: 5px;
 }
+
+.square-style {
+    height: 100px;
+    width: 100px;
+}
+  

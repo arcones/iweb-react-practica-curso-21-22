@@ -1,7 +1,6 @@
 import { Button } from 'react-bootstrap';
 
 const Reset = (props) => {
-
   const click = () => {
     props.resetClick();
   }
