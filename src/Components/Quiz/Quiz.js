@@ -11,20 +11,32 @@ const Quiz = () => {
     const [currentQuiz, setCurrentQuiz] = useState(0);
     const [quizzes, setQuizzes] = useState(require("../../assets/mock-data.json"));
     const [answer, setAnswer] = useState();
+    const [disabledNext, setDisabledNext] = useState(false);
+    const [disabledBack, setDisabledBack] = useState(true);
 
     const next = () => {
-        let nextQuiz = currentQuiz + 1
-        if (nextQuiz === 9) {
-            setFinished(true)
-            console.log(finished)
-        } else {
-            setCurrentQuiz(nextQuiz)
+        setCurrentQuiz(currentQuiz + 1)
+        setDisabledBack(false)
+        if (currentQuiz === (quizzes.length - 2)) {
+            setDisabledNext(true)
+        }
+    }
+
+    const back = () => {
+        setCurrentQuiz(currentQuiz - 1)
+        setDisabledNext(false)
+        if(currentQuiz === 1) {
+            setDisabledBack(true)
         }
     }
 
     const input = (theAnswer) => {
         console.log(theAnswer)
         setAnswer(theAnswer)
+    }
+
+    const submit = (value) => {
+        console.log(value)
     }
 
     return (
@@ -36,16 +48,18 @@ const Quiz = () => {
                 <div>
                     <img src={quizzes[currentQuiz].attachment.url} alt='' width="600" height="300" />
                 </div>
-{/*                 <form onSubmit={input}>
+                {/*                 <form onSubmit={input}>
                     <input type="text" value={answer}/>
                     <input type="submit" value="Submit" />
                 </form> */}
                 <input type="response" id="answer" placeholder={contextValue.dictionary.quiz_answer} />
                 <div>
-                    <p>{contextValue.dictionary.quiz_author}</p>
+                    <p>{contextValue.dictionary.quiz_author}{quizzes[currentQuiz].author.username}</p>
                     <img src={quizzes[currentQuiz].author.photo.url} alt='' width="50" height="50" />
                 </div>
-                <Button onClick={next}>{contextValue.dictionary.quiz_next}</Button>
+                <Button onClick={back} disabled={disabledBack}>{contextValue.dictionary.quiz_fwd}</Button>
+                <Button onClick={next} disabled={disabledNext}>{contextValue.dictionary.quiz_next}</Button>
+                <Button onClick={submit}>{contextValue.dictionary.quiz_submit}</Button>
             </div>
         </div>
     )

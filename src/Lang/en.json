@@ -7,6 +7,8 @@
     "quiz_question" : "Question...",
     "quiz_author" : "Author:",
     "quiz_answer" : "Input your answer...",
+    "quiz_fwd": "Back",
+    "quiz_submit": "Submit",
     "quiz_next": "Next",
     "tictactoe_title": "The fucking tictactoe",
     "home_title": "Welcome to my games app",
