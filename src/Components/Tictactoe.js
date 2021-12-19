@@ -8,9 +8,9 @@ const Tictactoe = () => {
 
     return (
         <div className="container">
-            <h2>
-            {contextValue.dictionary.tictactoe_title}
-            </h2>
+            <div className="contained-text">
+                <h2>{contextValue.dictionary.tictactoe_title}</h2>
+            </div>
         </div>
     )
 }

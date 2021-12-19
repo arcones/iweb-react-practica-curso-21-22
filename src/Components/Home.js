@@ -1,5 +1,6 @@
 import { useContext } from 'react';
 import { LangContext } from '../App';
+import gaming from './img/gaming.gif'
 
 import '../css/styles.css';
 
@@ -9,7 +10,11 @@ const Home = () => {
 
     return (
         <div className="container">
-            <h2>{contextValue.dictionary.home_title}</h2>
+            <div className="contained-text">
+                <h2>{contextValue.dictionary.home_title}</h2>
+                <h4>{contextValue.dictionary.home_subtitle}</h4>
+                <img src={gaming} alt="Gaming" width="600" height="300"/>
+            </div>
         </div>
     )
 }

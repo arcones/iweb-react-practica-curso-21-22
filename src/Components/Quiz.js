@@ -7,9 +7,9 @@ const Quiz = () => {
 
     return (
         <div className="container">
-            <h2>
-            {contextValue.dictionary.quiz_title}
-            </h2>
+            <div className="contained-text">
+                <h2>{contextValue.dictionary.quiz_title}</h2>
+            </div>
         </div>
     )
 }

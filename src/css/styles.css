@@ -61,6 +61,10 @@ li:hover {
     font-family: Arial Rounded MT Bold
 }
 
+.contained-text {
+    margin: 20px
+}
+
 .li-active {
     background-color: #93C4D1;
     color: #18363E;
