@@ -70,3 +70,13 @@ li:hover {
     color: #18363E;
     border-radius: 5px;
 }
+
+.tictactoe-button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #18363E;
+    color: #93C4D1;
+    font-family: Arial Rounded MT Bold;
+    border-radius: 5px;
+}

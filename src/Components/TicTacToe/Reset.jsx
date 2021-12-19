@@ -1,6 +1,8 @@
 import React from 'react';
 import {Button} from 'react-bootstrap';
 
+import '../../css/styles.css';
+
 export default class Reset extends React.Component {
     constructor(props) {
         super(props);
@@ -13,7 +15,7 @@ export default class Reset extends React.Component {
 
     render() {
         return(
-          <Button onClick={this.click} >
+          <Button onClick={this.click} className='tictactoe-button'>
             Reset
           </Button>
         );
