@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { LangContext } from '../App';
+import { LangContext } from '../../App';
 
 const Quiz = () => {
 

@@ -7,7 +7,7 @@ import en from './Lang/en.json'
 import Header from './Components/Header';
 import { Routes, Route } from "react-router-dom";
 import Tictactoe from './Components/TicTacToe/Tictactoe';
-import Quiz from './Components/Quiz';
+import Quiz from './Components/Quiz/Quiz';
 
 export const LangContext = createContext({ userLang: 'es', dictionary: es })
 
