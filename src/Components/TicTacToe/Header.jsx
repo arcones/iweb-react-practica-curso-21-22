@@ -1,10 +1,15 @@
 import { Card } from 'react-bootstrap';
+import { LangContext } from '../../App.js';
+import { useContext } from 'react';
 
 const Header = (props) => {
+
+  const contextValue = useContext(LangContext);
+
   return (
-    <Card style={{ width: '18rem' }}>
+    <Card>
       <Card.Body>
-        <Card.Title>Turn</Card.Title>
+        <Card.Title>{contextValue.dictionary.tictactoe_turn}</Card.Title>
         <Card.Text>{props.text}</Card.Text>
       </Card.Body>
     </Card>

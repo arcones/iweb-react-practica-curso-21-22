@@ -6,5 +6,9 @@
     "quiz_title": "The fucking quiz",
     "tictactoe_title": "The fucking tictactoe",
     "home_title": "Welcome to my games app",
-    "home_subtitle": "Click on the tabs to play the game you prefer"
+    "home_subtitle": "Click on the tabs to play the game you prefer",
+    "tictactoe_moves": "Number of moves: ",
+    "tictactoe_turn": "Current turn",
+    "tictactoe_player_turn": "Turn of player ",
+    "tictactoe_reset": "Reset"
 }

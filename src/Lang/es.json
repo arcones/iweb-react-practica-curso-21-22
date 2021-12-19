@@ -6,5 +6,9 @@
     "quiz_title": "El jodido quiz",
     "tictactoe_title": "El jodido tictactoe",
     "home_title": "Te damos la bienvenida a la aplicación mis juegos",
-    "home_subtitle": "Pulsa las pestañas para jugar al juego que más te apetezca"
+    "home_subtitle": "Pulsa las pestañas para jugar al juego que más te apetezca",
+    "tictactoe_moves": "Número de movimientos: ",
+    "tictactoe_turn": "Turno actual",
+    "tictactoe_player_turn": "Turno del jugador ",
+    "tictactoe_reset": "Reiniciar"
 }

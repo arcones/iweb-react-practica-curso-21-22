@@ -58,7 +58,8 @@ li:hover {
     top: 130px;
     width: 100%;
     height: 814px;
-    font-family: Arial Rounded MT Bold
+    font-family: Arial Rounded MT Bold;
+    text-align: center
 }
 
 .contained-text {
@@ -68,16 +69,6 @@ li:hover {
 .li-active {
     background-color: #93C4D1;
     color: #18363E;
-    border-radius: 5px;
-}
-
-.tictactoe-button {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #18363E;
-    color: #93C4D1;
-    font-family: Arial Rounded MT Bold;
     border-radius: 5px;
 }
 
