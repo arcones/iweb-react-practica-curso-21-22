@@ -4,6 +4,7 @@
     "navbar_item2": "TicTacToe",
     "navbar_item3": "Trivial",
     "quiz_title": "Trivial",
+    "quiz_score": "Tu puntuación es: ",
     "quiz_question" : "Pregunta...",
     "quiz_author" : "Autor: ",
     "quiz_answer" : "Introduzca su respuesta",

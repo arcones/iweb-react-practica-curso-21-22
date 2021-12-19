@@ -14,7 +14,16 @@ const Quiz = () => {
     const [disabledNext, setDisabledNext] = useState(false);
     const [disabledBack, setDisabledBack] = useState(true);
 
+    const answerCheck = () => {
+        if (document.getElementById("answer").value.toLowerCase() === quizzes[currentQuiz].answer.toLowerCase()) {
+            console.log("Has acertado")
+            setScore(score + 1)
+        }
+        document.getElementById("answer").value = "";
+    }
+
     const next = () => {
+        answerCheck(currentQuiz)
         setCurrentQuiz(currentQuiz + 1)
         setDisabledBack(false)
         if (currentQuiz === (quizzes.length - 2)) {
@@ -23,16 +32,12 @@ const Quiz = () => {
     }
 
     const back = () => {
+        answerCheck(currentQuiz)
         setCurrentQuiz(currentQuiz - 1)
         setDisabledNext(false)
-        if(currentQuiz === 1) {
+        if (currentQuiz === 1) {
             setDisabledBack(true)
         }
-    }
-
-    const input = (theAnswer) => {
-        console.log(theAnswer)
-        setAnswer(theAnswer)
     }
 
     const submit = (value) => {
@@ -42,23 +47,22 @@ const Quiz = () => {
     return (
         <div className="container">
             <div className="contained-text">
+                <p>{contextValue.dictionary.quiz_score}{score}</p>
                 <h2>{contextValue.dictionary.quiz_title}</h2>
                 <h3>{contextValue.dictionary.quiz_question}</h3>
                 <p>{quizzes[currentQuiz].question}</p>
                 <div>
                     <img src={quizzes[currentQuiz].attachment.url} alt='' width="600" height="300" />
                 </div>
-                {/*                 <form onSubmit={input}>
-                    <input type="text" value={answer}/>
-                    <input type="submit" value="Submit" />
-                </form> */}
-                <input type="response" id="answer" placeholder={contextValue.dictionary.quiz_answer} />
+                <input type="response" id="answer" placeholder={contextValue.dictionary.quiz_answer}/>
                 <div>
                     <p>{contextValue.dictionary.quiz_author}{quizzes[currentQuiz].author.username}</p>
                     <img src={quizzes[currentQuiz].author.photo.url} alt='' width="50" height="50" />
                 </div>
-                <Button onClick={back} disabled={disabledBack}>{contextValue.dictionary.quiz_fwd}</Button>
-                <Button onClick={next} disabled={disabledNext}>{contextValue.dictionary.quiz_next}</Button>
+                <div>
+                    <Button onClick={back} disabled={disabledBack}>{contextValue.dictionary.quiz_fwd}</Button>
+                    <Button onClick={next} disabled={disabledNext}>{contextValue.dictionary.quiz_next}</Button>
+                </div>
                 <Button onClick={submit}>{contextValue.dictionary.quiz_submit}</Button>
             </div>
         </div>
