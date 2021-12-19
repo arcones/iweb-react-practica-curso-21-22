@@ -12,7 +12,6 @@ const Reset = (props) => {
     backgroundColor: '#18363E',
     color: '#93C4D1',
     borderRadius: '5px',
-    fontSize: '30px',
     fontFamily: 'Gabriola'
   }
 
