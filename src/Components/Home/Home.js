@@ -1,8 +1,8 @@
 import { useContext } from 'react';
-import { LangContext } from '../App';
+import { LangContext } from '../../App';
 import gaming from './img/gaming.gif'
 
-import '../css/styles.css';
+import '../../css/styles.css';
 
 const Home = () => {
 
