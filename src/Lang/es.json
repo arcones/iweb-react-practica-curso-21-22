@@ -6,6 +6,7 @@
     "quiz_title": "Trivial",
     "quiz_score": "Tu puntuación es: ",
     "quiz_question" : "Pregunta...",
+    "quiz_reset": "Reiniciar",
     "quiz_author" : "Autor: ",
     "quiz_answer" : "Introduzca su respuesta",
     "quiz_next": "Siguiente",
