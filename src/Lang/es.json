@@ -8,6 +8,7 @@
     "quiz_question" : "Pregunta...",
     "quiz_reset": "Reiniciar",
     "quiz_author" : "Autor: ",
+    "quiz_empty": "Ups... no hay quizzes disponibles",
     "quiz_answer" : "Introduzca su respuesta",
     "quiz_next": "Siguiente",
     "quiz_submit": "Enviar",

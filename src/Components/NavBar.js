@@ -4,24 +4,12 @@ import { useContext } from 'react';
 import { LangContext } from '../App';
 import { Outlet, Link } from "react-router-dom";
 import { useState } from 'react';
-import { useEffect } from 'react';
 
 const NavBar = () => {
 
     const contextValue = useContext(LangContext);
 
     const [active, setActive] = useState('home');
-
-    useEffect(() => {
-        window.addEventListener("beforeunload", alertUser);
-        return () => {
-            window.removeEventListener("beforeunload", alertUser);
-        };
-    }, []);
-    const alertUser = (e) => {
-        e.preventDefault();
-        e.returnValue = "";
-    };
 
     function changeStyle(button) {
         setActive(button);

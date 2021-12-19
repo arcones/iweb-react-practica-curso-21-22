@@ -1,15 +1,13 @@
 
-import { useState } from 'react';
 import Game from './Game';
 import Scores from './Scores';
+import { useState } from 'react';
 
 const Quiz = () => {
 
     const [score, setScore] = useState(0);
-    const [finished, setFinished] = useState(false);
     const [currentQuiz, setCurrentQuiz] = useState(0);
-    const [quizzes, setQuizzes] = useState(require("../../assets/mock-data.json"));
-
+    const [finished, setFinished] = useState(false);
 
     return (
         <div>
@@ -19,7 +17,6 @@ const Quiz = () => {
                     setScore={setScore}
                     currentQuiz={currentQuiz}
                     setCurrentQuiz={setCurrentQuiz}
-                    quizzes={quizzes}
                     setFinished={setFinished}
                 />
             )}
@@ -33,7 +30,6 @@ const Quiz = () => {
                 />
             )}
         </div>
-
     )
 }
 
