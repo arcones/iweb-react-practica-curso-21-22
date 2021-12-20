@@ -15,7 +15,8 @@ const Scores = ({score, setFinished, setScore, setCurrentQuiz}) => {
     return (
         <div className="container">
             <div className="contained-text">
-                {contextValue.dictionary.quiz_score}{score}
+                <h2>{contextValue.dictionary.quiz_score}{score}</h2>
+                <h2>{contextValue.dictionary.quiz_score_percentage}{((score/10)*100).toFixed(2)}%</h2>
             </div>
             <Button onClick={reset}>{contextValue.dictionary.quiz_reset}</Button>
         </div>

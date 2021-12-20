@@ -5,6 +5,7 @@
     "navbar_item3": "Trivial",
     "quiz_title": "Trivial",
     "quiz_score": "Tu puntuación es: ",
+    "quiz_score_percentage": "El porcentaje de aciertos es de ",
     "quiz_question" : "Pregunta...",
     "quiz_reset": "Reiniciar",
     "quiz_author" : "Autor: ",
