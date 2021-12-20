@@ -5,7 +5,7 @@ import { Button } from 'react-bootstrap';
 import jordi from './img/jordi.jpeg'
 import mrx from './img/mrx.jpeg'
 
-const QuizGame = ({ score, setScore, currentQuiz, setCurrentQuiz, quizzes, setFinished }) => {
+const QuizGame = ({ setScore, currentQuiz, setCurrentQuiz, quizzes, setFinished }) => {
 
     const contextValue = useContext(LangContext);
 
