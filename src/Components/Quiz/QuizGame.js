@@ -11,18 +11,17 @@ const QuizGame = ({ score, setScore, currentQuiz, setCurrentQuiz, quizzes, setFi
 
     const [disabledNext, setDisabledNext] = useState(false);
     const [disabledBack, setDisabledBack] = useState(true);
+    const [answers, setAnswers] = useState({})
 
-
-    const answerCheck = () => {
-        if (document.getElementById("answer").value.toLowerCase() === quizzes[currentQuiz].answer.toLowerCase()) {
-            console.log("Has acertado")
-            setScore(score + 1)
-        }
+    const answerSave = () => {
+        var answersCopy = answers
+        answersCopy[quizzes[currentQuiz].id] = document.getElementById("answer").value.toLowerCase()
+        setAnswers(answersCopy)
         document.getElementById("answer").value = "";
     }
 
     const next = () => {
-        answerCheck(currentQuiz)
+        answerSave(currentQuiz)
         setCurrentQuiz(currentQuiz + 1)
         setDisabledBack(false)
         if (currentQuiz === (quizzes.length - 2)) {
@@ -31,7 +30,7 @@ const QuizGame = ({ score, setScore, currentQuiz, setCurrentQuiz, quizzes, setFi
     }
 
     const back = () => {
-        answerCheck(currentQuiz)
+        answerSave(currentQuiz)
         setCurrentQuiz(currentQuiz - 1)
         setDisabledNext(false)
         if (currentQuiz === 1) {
@@ -40,23 +39,40 @@ const QuizGame = ({ score, setScore, currentQuiz, setCurrentQuiz, quizzes, setFi
     }
 
     const submit = () => {
+        answerSave(currentQuiz)
         setFinished(true)
+        let scoreObtained = 0
+        Object.keys(answers).forEach((key) => {
+            let keyNumber = Number(key)
+            const filtered = quizzes.filter((quiz) => quiz.id === keyNumber)[0];
+            if (filtered.answer.toLowerCase() === answers[key].toLowerCase()) {
+                scoreObtained++
+            }
+        });
+        setScore(scoreObtained)
+    }
+
+    const getAttachmentURLIfPossible = () => {
+        return quizzes[currentQuiz].attachment ? quizzes[currentQuiz].attachment.url : jordi
+    }
+
+    const getAuthorPhotoIfPossible = () => {
+        return quizzes[currentQuiz].author.photo ? quizzes[currentQuiz].author.photo.url : mrx
     }
 
     return (
         <div className="container">
             <div className="contained-text">
                 <h2>{contextValue.dictionary.quiz_title}</h2>
-                <p>{contextValue.dictionary.quiz_score}{score}</p>
                 <h3>{contextValue.dictionary.quiz_question}</h3>
                 <p>{quizzes[currentQuiz].question}</p>
                 <div>
-                    <img src={quizzes[currentQuiz].attachment ? quizzes[currentQuiz].attachment.url : jordi} onError={(e) => (e.target.onerror = null, e.target.src = jordi)} alt='' width="600" height="300" />
+                    <img src={getAttachmentURLIfPossible()} onError={(e) => (e.target.onerror = null, e.target.src = jordi)} alt='' width="600" height="300" />
                 </div>
                 <input type="response" id="answer" placeholder={contextValue.dictionary.quiz_answer} />
                 <div>
                     <p>{contextValue.dictionary.quiz_author}{quizzes[currentQuiz].author.username}</p>
-                    <img src={quizzes[currentQuiz].author.photo ? quizzes[currentQuiz].author.photo.url : mrx} onError={(e) => (e.target.onerror = null, e.target.src = mrx)} alt='' width="50" height="50" />
+                    <img src={getAuthorPhotoIfPossible()} onError={(e) => (e.target.onerror = null, e.target.src = mrx)} alt='' width="50" height="50" />
                 </div>
                 <div>
                     <Button onClick={back} disabled={disabledBack}>{contextValue.dictionary.quiz_fwd}</Button>
