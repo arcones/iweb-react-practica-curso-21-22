@@ -51,14 +51,12 @@ const QuizGame = ({ score, setScore, currentQuiz, setCurrentQuiz, quizzes, setFi
                 <h3>{contextValue.dictionary.quiz_question}</h3>
                 <p>{quizzes[currentQuiz].question}</p>
                 <div>
-                    {/* AQUI ME HE QUEDADO, no funcionan las imágenes q tienen todo el bloque attachment a null por defecto Uncaught TypeError: quizzes[currentQuiz].attachment is null */}
-                    <img src={quizzes[currentQuiz].attachment.url} onError={(e) => (e.target.onerror = null, e.target.src = jordi)} alt='' width="600" height="300" />
+                    <img src={quizzes[currentQuiz].attachment ? quizzes[currentQuiz].attachment.url : jordi} onError={(e) => (e.target.onerror = null, e.target.src = jordi)} alt='' width="600" height="300" />
                 </div>
                 <input type="response" id="answer" placeholder={contextValue.dictionary.quiz_answer} />
                 <div>
                     <p>{contextValue.dictionary.quiz_author}{quizzes[currentQuiz].author.username}</p>
-
-                    <img src={quizzes[currentQuiz].author.photo.url} onError={(e) => (e.target.onerror = null, e.target.src = mrx)} alt='' width="50" height="50" />
+                    <img src={quizzes[currentQuiz].author.photo ? quizzes[currentQuiz].author.photo.url : mrx} onError={(e) => (e.target.onerror = null, e.target.src = mrx)} alt='' width="50" height="50" />
                 </div>
                 <div>
                     <Button onClick={back} disabled={disabledBack}>{contextValue.dictionary.quiz_fwd}</Button>
