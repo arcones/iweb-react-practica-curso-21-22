@@ -20,22 +20,27 @@ const QuizGame = ({ setScore, currentQuiz, setCurrentQuiz, quizzes, setFinished 
         document.getElementById("answer").value = "";
     }
 
-    const next = () => {
-        answerSave(currentQuiz)
-        setCurrentQuiz(currentQuiz + 1)
-        setDisabledBack(false)
-        if (currentQuiz === (quizzes.length - 2)) {
+    const updateButtons = () => {
+        if (currentQuiz === (quizzes.length - 1)) {
             setDisabledNext(true)
+            setDisabledBack(false)
+        } else if (currentQuiz === 0) {
+            setDisabledNext(false)
+            setDisabledBack(true)
+        } else {
+            setDisabledNext(false)
+            setDisabledBack(false)
         }
     }
 
+    const next = () => {
+        answerSave()
+        setCurrentQuiz(currentQuiz + 1)
+    }
+
     const back = () => {
-        answerSave(currentQuiz)
+        answerSave()
         setCurrentQuiz(currentQuiz - 1)
-        setDisabledNext(false)
-        if (currentQuiz === 1) {
-            setDisabledBack(true)
-        }
     }
 
     const submit = () => {
@@ -60,10 +65,23 @@ const QuizGame = ({ setScore, currentQuiz, setCurrentQuiz, quizzes, setFinished 
         return quizzes[currentQuiz].author.photo ? quizzes[currentQuiz].author.photo.url : mrx
     }
 
+    const renderSpecificQuiz = (index) => {
+        answerSave()
+        setCurrentQuiz(index)
+        console.log(currentQuiz)
+        updateButtons()
+    }
+
+    let quizButtons = quizzes.map((item, index) => {
+        return <Button key={index} onClick={() => renderSpecificQuiz(index)}>{index + 1}</Button>
+    })
     return (
         <div className="container">
-            <div className="contained-text">
+            <div onLoad={updateButtons} className="contained-text">
                 <h2>{contextValue.dictionary.quiz_title}</h2>
+                <div>
+                    {quizButtons}
+                </div>
                 <h3>{contextValue.dictionary.quiz_question}</h3>
                 <p>{quizzes[currentQuiz].question}</p>
                 <div>
@@ -79,6 +97,7 @@ const QuizGame = ({ setScore, currentQuiz, setCurrentQuiz, quizzes, setFinished 
                     <Button onClick={next} disabled={disabledNext}>{contextValue.dictionary.quiz_next}</Button>
                 </div>
                 <Button onClick={submit}>{contextValue.dictionary.quiz_submit}</Button>
+
             </div>
         </div>
     )

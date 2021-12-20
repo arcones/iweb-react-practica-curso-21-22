@@ -18,7 +18,7 @@
     "attachment": {
         "filename": "capitals/Nicosia.jpg",
         "mime": "image/jpeg",
-        "url": "https://core.dit.upm.es/uploads/capitals/Nicosia.jpgs"
+        "url": "https://core.dit.upm.es/uploads/capitals/Nicosia.jpg"
     },
     "favourite": false
 },
@@ -32,9 +32,18 @@
         "username": "admin",
         "accountTypeId": 0,
         "profileId": null,
-        "profileName": null
+        "profileName": null,
+        "photo": {
+            "filename": "spg072.jpg",
+            "mime": "image/jpeg",
+            "url": "https://core.dit.upm.es/uploads/91712eceb48a55c134e80c8f38e955711cbeda8d59b19192fb75f945fcb0fb60"
+        }
     },
-    "attachment": null,
+    "attachment": {
+        "filename": "capitals/Berlin.jpg",
+        "mime": "image/jpeg",
+        "url": "https://core.dit.upm.es/uploads/capitals/Berlin.jpg"
+    },
     "favourite": false
 },
 {
@@ -51,7 +60,7 @@
         "photo": {
             "filename": "spg072.jpg",
             "mime": "image/jpeg",
-            "url": "https://core.dit.upm.es/uploads/917s12eceb48a55c134e80c8f38e955711cbeda8d59b19192fb75f945fcb0fb60"
+            "url": "https://core.dit.upm.es/uploads/91712eceb48a55c134e80c8f38e955711cbeda8d59b19192fb75f945fcb0fb60"
         }
     },
     "attachment": {
