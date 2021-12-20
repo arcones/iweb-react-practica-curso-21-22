@@ -62,13 +62,16 @@ const QuizGame = ({ setScore, currentQuiz, setCurrentQuiz, quizzes, setFinished 
     }
 
     const getAuthorPhotoIfPossible = () => {
-        return quizzes[currentQuiz].author.photo ? quizzes[currentQuiz].author.photo.url : mrx
+        return quizzes[currentQuiz].author && quizzes[currentQuiz].author.photo ? quizzes[currentQuiz].author.photo.url : mrx
+    }
+
+    const getAuthorNameIfPossible =() => {
+        return quizzes[currentQuiz].author && quizzes[currentQuiz].author.username ? quizzes[currentQuiz].author.username : "Anónimo"
     }
 
     const renderSpecificQuiz = (index) => {
         answerSave()
         setCurrentQuiz(index)
-        console.log(currentQuiz)
         updateButtons()
     }
 
@@ -89,7 +92,7 @@ const QuizGame = ({ setScore, currentQuiz, setCurrentQuiz, quizzes, setFinished 
                 </div>
                 <input type="response" id="answer" placeholder={contextValue.dictionary.quiz_answer} />
                 <div>
-                    <p>{contextValue.dictionary.quiz_author}{quizzes[currentQuiz].author.username}</p>
+                    <p>{contextValue.dictionary.quiz_author}{getAuthorNameIfPossible()}</p>
                     <img src={getAuthorPhotoIfPossible()} onError={(e) => (e.target.onerror = null, e.target.src = mrx)} alt='' width="50" height="50" />
                 </div>
                 <div>
