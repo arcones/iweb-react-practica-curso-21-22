@@ -8,14 +8,18 @@ const Game = ({ score, setScore, currentQuiz, setCurrentQuiz, setFinished }) => 
     const URL = 'https://core.dit.upm.es/api/quizzes/random10wa?token=2bca751d84825b1e6c2a'
 
     //const [quizzes, setQuizzes] = useState(require("../../assets/empty-data.json"));
-    //const [quizzes, setQuizzes] = useState(require("../../assets/mock-data.json"));
+    
+    // Desarrollo en local
+    const [quizzes, setQuizzes] = useState(require("../../assets/mock-data.json"));
+    
+    // Desarrollo contra el servidor
+    /*
     const [quizzes, setQuizzes] = useState([]);
-
     useEffect(() => {
         fetch(URL)
             .then(res => res.json())
             .then(json => {setQuizzes(json)})
-    }, []);
+    }, []); */
 
     return (
         <div>

@@ -39,11 +39,7 @@
             "url": "https://core.dit.upm.es/uploads/x91712eceb48a55c134e80c8f38e955711cbeda8d59b19192fb75f945fcb0fb60"
         }
     },
-    "attachment": {
-        "filename": "capitals/Berlin.jpg",
-        "mime": "image/jpeg",
-        "url": "https://core.dit.upm.es/uploads/capitals/Berlin.jpg"
-    },
+    "attachment": null,
     "favourite": false
 },
 {
