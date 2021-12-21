@@ -65,7 +65,7 @@ const QuizGame = ({ setScore, currentQuiz, setCurrentQuiz, quizzes, setFinished 
         return quizzes[currentQuiz].author && quizzes[currentQuiz].author.photo ? quizzes[currentQuiz].author.photo.url : mrx
     }
 
-    const getAuthorNameIfPossible =() => {
+    const getAuthorNameIfPossible = () => {
         return quizzes[currentQuiz].author && quizzes[currentQuiz].author.username ? quizzes[currentQuiz].author.username : "Anónimo"
     }
 
@@ -73,6 +73,21 @@ const QuizGame = ({ setScore, currentQuiz, setCurrentQuiz, quizzes, setFinished 
         answerSave()
         setCurrentQuiz(index)
         updateButtons()
+    }
+
+    const truncate = (question) => {
+        console.log(`truncando ${question}`)
+        return question.substring(0, 500)
+    }
+
+    const fallbackAuthorPhoto = (e) => {
+        e.target.onerror = null
+        e.target.src = mrx
+    }
+
+    const fallbackAttachmentPhoto = (e) => {
+        e.target.onerror = null
+        e.target.src = jordi
     }
 
     let quizButtons = quizzes.map((item, index) => {
@@ -85,15 +100,15 @@ const QuizGame = ({ setScore, currentQuiz, setCurrentQuiz, quizzes, setFinished 
                 <div>
                     {quizButtons}
                 </div>
-                <h3>{contextValue.dictionary.quiz_question}</h3>
-                <p>{quizzes[currentQuiz].question}</p>
+                <h3>{contextValue.dictionary.quiz_question}{currentQuiz + 1}</h3>
+                <p>{truncate(quizzes[currentQuiz].question)}</p>
                 <div>
-                    <img src={getAttachmentURLIfPossible()} onError={(e) => (e.target.onerror = null, e.target.src = jordi)} alt='' width="600" height="300" />
+                    <img src={getAttachmentURLIfPossible()} onError={e => fallbackAttachmentPhoto(e)} alt='' width="600" height="300" />
                 </div>
                 <input type="response" id="answer" placeholder={contextValue.dictionary.quiz_answer} />
                 <div>
                     <p>{contextValue.dictionary.quiz_author}{getAuthorNameIfPossible()}</p>
-                    <img src={getAuthorPhotoIfPossible()} onError={(e) => (e.target.onerror = null, e.target.src = mrx)} alt='' width="50" height="50" />
+                    <img src={getAuthorPhotoIfPossible()} onError={e => fallbackAuthorPhoto(e)} alt='' width="50" height="50" />
                 </div>
                 <div>
                     <Button onClick={back} disabled={disabledBack}>{contextValue.dictionary.quiz_fwd}</Button>
