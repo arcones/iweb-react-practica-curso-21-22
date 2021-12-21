@@ -1,7 +1,7 @@
 {
     "titulo" : "Mis Juegos",
     "navbar_item1": "Inicio",
-    "navbar_item2": "TicTacToe",
+    "navbar_item2": "Tres en raya",
     "navbar_item3": "Trivial",
     "quiz_title": "Trivial",
     "quiz_score": "Tu puntuación es ",
