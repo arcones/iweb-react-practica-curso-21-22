@@ -12,7 +12,8 @@ const Reset = (props) => {
     backgroundColor: '#18363E',
     color: '#93C4D1',
     borderRadius: '5px',
-    fontFamily: 'Gabriola'
+    fontFamily: 'Gabriola',
+    fontSize: '25px'
   }
 
   const click = () => {
