@@ -4,12 +4,14 @@ import { useContext } from 'react';
 import { LangContext } from '../App';
 import { Outlet, Link } from "react-router-dom";
 import { useState } from 'react';
+import { useLocation } from "react-router-dom";
 
 const NavBar = () => {
-
     const contextValue = useContext(LangContext);
+    
+    const location = useLocation();
 
-    const [active, setActive] = useState('home');
+    const [active, setActive] = useState(location.pathname.slice(1) ? location.pathname.slice(1) : 'home');
 
     function changeStyle(button) {
         setActive(button);
