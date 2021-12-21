@@ -9,7 +9,7 @@ import { Routes, Route } from "react-router-dom";
 import Tictactoe from './Components/TicTacToe/Tictactoe';
 import Quiz from './Components/Quiz/Quiz';
 import { useEffect } from 'react';
-import { Spinner } from 'react-bootstrap';
+// import { Spinner } from 'react-bootstrap';
 
 export const LangContext = createContext({ userLang: 'es', dictionary: es })
 
@@ -18,18 +18,18 @@ function App() {
   const [lang, setLang] = useState('es')
   const [loading, setLoading] = useState(true)
 
-  useEffect(() => {
-    setTimeout(() => {
-      setLoading(false)
-    }, 2000)
-  }, [])
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     setLoading(false)
+  //   }, 2000)
+  // }, [])
 
   return (
     <LangContext.Provider value={{ userLang: lang, dictionary: lang === 'es' ? es : en }}>
       <div>
         <Header setLang={setLang} />
         <NavBar />
-        {loading ? <Spinner animation="border" variant="primary" /> :
+        {/* {loading ? <Spinner animation="border" variant="primary" /> : */}
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="tictactoe" element={<Tictactoe />} />
