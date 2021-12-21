@@ -13,6 +13,7 @@ const Game = ({ setScore, currentQuiz, setCurrentQuiz, setFinished }) => {
     // Desarrollo contra el servidor
     const URL = 'https://core.dit.upm.es/api/quizzes/random10wa?token=2bca751d84825b1e6c2a'
     const [quizzes, setQuizzes] = useState([]);
+
     useEffect(() => {
         fetch(URL)
             .then(res => res.json())
@@ -27,6 +28,7 @@ const Game = ({ setScore, currentQuiz, setCurrentQuiz, setFinished }) => {
                     currentQuiz={currentQuiz}
                     setCurrentQuiz={setCurrentQuiz}
                     quizzes={quizzes}
+                    setQuizzes={setQuizzes}
                     setFinished={setFinished}
                 />
             )}

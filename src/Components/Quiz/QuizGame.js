@@ -5,7 +5,7 @@ import { Button } from 'react-bootstrap';
 import jordi from './img/jordi.jpeg'
 import mrx from './img/mrx.jpeg'
 
-const QuizGame = ({ setScore, currentQuiz, setCurrentQuiz, quizzes, setFinished }) => {
+const QuizGame = ({ setScore, currentQuiz, setCurrentQuiz, setQuizzes, quizzes, setFinished }) => {
 
     const contextValue = useContext(LangContext);
 
@@ -76,7 +76,6 @@ const QuizGame = ({ setScore, currentQuiz, setCurrentQuiz, quizzes, setFinished 
     }
 
     const truncate = (question) => {
-        console.log(`truncando ${question}`)
         return question.substring(0, 500)
     }
 
@@ -93,10 +92,25 @@ const QuizGame = ({ setScore, currentQuiz, setCurrentQuiz, quizzes, setFinished 
     let quizButtons = quizzes.map((item, index) => {
         return <Button key={index} onClick={() => renderSpecificQuiz(index)}>{index + 1}</Button>
     })
+
+    const newQuizzes = async () => {
+        const URL = 'https://core.dit.upm.es/api/quizzes/random10wa?token=2bca751d84825b1e6c2a'
+        await fetch(URL).then(res => setQuizzes(res.json()))
+    }
+
+    const reset = () => {
+        setScore(0)
+        setFinished(false)
+        setCurrentQuiz(0)
+        setQuizzes([])
+        newQuizzes()
+    }
+
     return (
         <div className="container">
             <div onLoad={updateButtons} className="contained-text">
                 <h2>{contextValue.dictionary.quiz_title}</h2>
+                <Button onClick={reset}>{contextValue.dictionary.quiz_reset}</Button>
                 <div>
                     {quizButtons}
                 </div>
