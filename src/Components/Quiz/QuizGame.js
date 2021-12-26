@@ -5,7 +5,7 @@ import { Button } from 'react-bootstrap';
 import jordi from './img/jordi.jpeg'
 import mrx from './img/mrx.jpeg'
 
-const QuizGame = ({ setScore, currentQuiz, setCurrentQuiz, quizzes, setFinished }) => {
+const QuizGame = ({ setScore, currentQuiz, setCurrentQuiz, quizzes, setFinished, setQuizzes }) => {
 
     const contextValue = useContext(LangContext);
 
@@ -109,6 +109,11 @@ const QuizGame = ({ setScore, currentQuiz, setCurrentQuiz, quizzes, setFinished 
         };
     });
 
+    const reboot = () => {
+        setQuizzes([])
+        setScore(0)
+    }
+
     return (
         <div className="container">
             <div onLoad={updateButtons} className="contained-text">
@@ -132,7 +137,7 @@ const QuizGame = ({ setScore, currentQuiz, setCurrentQuiz, quizzes, setFinished 
                     <Button onClick={next} disabled={disabledNext}>{contextValue.dictionary.quiz_next}</Button>
                 </div>
                 <Button onClick={submit}>{contextValue.dictionary.quiz_submit}</Button>
-
+                <Button onClick={reboot}>{contextValue.dictionary.quiz_reboot}</Button>
             </div>
         </div>
     )

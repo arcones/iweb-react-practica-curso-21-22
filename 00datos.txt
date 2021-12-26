@@ -1,3 +1,4 @@
 Marta Arcones Rodríguez
+- Mejora índice y reset
 - Mejora cuenta atrás
 - Mejora tecla intro

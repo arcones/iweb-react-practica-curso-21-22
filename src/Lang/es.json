@@ -14,6 +14,7 @@
     "quiz_answer" : "Escriba su respuesta",
     "quiz_next": "Siguiente",
     "quiz_submit": "Enviar",
+    "quiz_reboot": "Reiniciar",
     "quiz_fwd": "Anterior",
     "tictactoe_title": "El jodido tictactoe",
     "home_title": "Te damos la bienvenida a la aplicación mis juegos",

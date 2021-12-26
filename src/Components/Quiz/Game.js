@@ -7,11 +7,14 @@ const Game = ({ setScore, currentQuiz, setCurrentQuiz, setFinished }) => {
 
     const URL = 'https://core.dit.upm.es/api/quizzes/random10wa?token=2bca751d84825b1e6c2a'
     const [quizzes, setQuizzes] = useState([]);
+
     useEffect(() => {
-        fetch(URL)
-            .then(res => res.json())
-            .then(json => { setQuizzes(json) })
-    }, []);
+        if (quizzes.length === 0) {
+            fetch(URL)
+                .then(res => res.json())
+                .then(json => { setQuizzes(json) })
+        }
+    }, [quizzes]);
 
     return (
         <div>
@@ -22,6 +25,7 @@ const Game = ({ setScore, currentQuiz, setCurrentQuiz, setFinished }) => {
                     setCurrentQuiz={setCurrentQuiz}
                     quizzes={quizzes}
                     setFinished={setFinished}
+                    setQuizzes={setQuizzes}
                 />
             )}
             {quizzes.length <= 0 && (
