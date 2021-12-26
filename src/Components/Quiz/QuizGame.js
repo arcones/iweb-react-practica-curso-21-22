@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { LangContext } from '../../App';
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from 'react-bootstrap';
 import jordi from './img/jordi.jpeg'
 import mrx from './img/mrx.jpeg'
@@ -12,6 +12,7 @@ const QuizGame = ({ setScore, currentQuiz, setCurrentQuiz, quizzes, setFinished 
     const [disabledNext, setDisabledNext] = useState(false);
     const [disabledBack, setDisabledBack] = useState(true);
     const [answers, setAnswers] = useState({})
+    const [timeLeft, setTimeLeft] = useState(60)
 
     const answerSave = () => {
         var answersCopy = answers
@@ -99,6 +100,15 @@ const QuizGame = ({ setScore, currentQuiz, setCurrentQuiz, quizzes, setFinished 
         }
     }
 
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setTimeLeft((prevTimeLeft) => prevTimeLeft === 0 ? submit() : prevTimeLeft - 1);
+        }, 1000);
+        return () => {
+            clearInterval(interval);
+        };
+    });
+
     return (
         <div className="container">
             <div onLoad={updateButtons} className="contained-text">
@@ -115,6 +125,7 @@ const QuizGame = ({ setScore, currentQuiz, setCurrentQuiz, quizzes, setFinished 
                 <div>
                     <p>{contextValue.dictionary.quiz_author}{getAuthorNameIfPossible()}</p>
                     <img src={getAuthorPhotoIfPossible()} onError={e => fallbackAuthorPhoto(e)} alt='' width="50" height="50" />
+                    <p>{contextValue.dictionary.quiz_time_remaining}{timeLeft}</p>
                 </div>
                 <div>
                     <Button onClick={back} disabled={disabledBack}>{contextValue.dictionary.quiz_fwd}</Button>

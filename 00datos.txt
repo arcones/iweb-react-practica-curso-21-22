@@ -1,2 +1,3 @@
 Marta Arcones Rodríguez
+- Mejora cuenta atrás
 - Mejora tecla intro
