@@ -16,8 +16,7 @@ export const LangContext = createContext({ userLang: 'es', dictionary: es })
 function App() {
 
   const [lang, setLang] = useState('es')
-  
-  //const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(true)
 
   // useEffect(() => {
   //   setTimeout(() => {
@@ -35,7 +34,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="tictactoe" element={<Tictactoe />} />
             <Route path="quiz" element={<Quiz />} />
-          </Routes>
+          </Routes>}
       </div>
     </LangContext.Provider>
   );
