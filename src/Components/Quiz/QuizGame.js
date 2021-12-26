@@ -5,14 +5,14 @@ import { Button } from 'react-bootstrap';
 import jordi from './img/jordi.jpeg'
 import mrx from './img/mrx.jpeg'
 
-const QuizGame = ({ setScore, currentQuiz, setCurrentQuiz, quizzes, setFinished, setQuizzes }) => {
+const QuizGame = ({ setScore, currentQuiz, setCurrentQuiz, quizzes, setFinished, setQuizzes}) => {
 
     const contextValue = useContext(LangContext);
 
     const [disabledNext, setDisabledNext] = useState(false);
     const [disabledBack, setDisabledBack] = useState(true);
-    const [answers, setAnswers] = useState({})
     const [timeLeft, setTimeLeft] = useState(60)
+    const [inputs, setInputs] = useState(new Map())
 
     const answerSave = () => {
         var answersCopy = answers
@@ -114,6 +114,13 @@ const QuizGame = ({ setScore, currentQuiz, setCurrentQuiz, quizzes, setFinished,
         setScore(0)
     }
 
+    const onChangeDo = (e) => {
+        let newKey = new Map()
+        newKey.set(currentQuiz, e.target.value)
+        let merged = new Map([...inputs, ...newKey])
+        setInputs(merged)
+    }
+
     return (
         <div className="container">
             <div onLoad={updateButtons} className="contained-text">
@@ -126,7 +133,7 @@ const QuizGame = ({ setScore, currentQuiz, setCurrentQuiz, quizzes, setFinished,
                 <div>
                     <img src={getAttachmentURLIfPossible()} onError={e => fallbackAttachmentPhoto(e)} alt='' width="600" height="300" />
                 </div>
-                <input id="answer" onKeyPress={event => onEnterKey(event)} placeholder={contextValue.dictionary.quiz_answer} />
+                <input id="answer" value={inputs.get(currentQuiz)} onChange={e => onChangeDo(e)} onKeyPress={event => onEnterKey(event)} placeholder={contextValue.dictionary.quiz_answer} />
                 <div>
                     <p>{contextValue.dictionary.quiz_author}{getAuthorNameIfPossible()}</p>
                     <img src={getAuthorPhotoIfPossible()} onError={e => fallbackAuthorPhoto(e)} alt='' width="50" height="50" />
