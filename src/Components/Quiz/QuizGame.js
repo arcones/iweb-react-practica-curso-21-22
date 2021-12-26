@@ -5,7 +5,7 @@ import { Button } from 'react-bootstrap';
 import jordi from './img/jordi.jpeg'
 import mrx from './img/mrx.jpeg'
 
-const QuizGame = ({ setScore, currentQuiz, setCurrentQuiz, quizzes, setFinished, setQuizzes}) => {
+const QuizGame = ({ setScore, currentQuiz, setCurrentQuiz, quizzes, setFinished, setQuizzes, answers, setAnswers }) => {
 
     const contextValue = useContext(LangContext);
 
@@ -119,6 +119,7 @@ const QuizGame = ({ setScore, currentQuiz, setCurrentQuiz, quizzes, setFinished,
         newKey.set(currentQuiz, e.target.value)
         let merged = new Map([...inputs, ...newKey])
         setInputs(merged)
+
     }
 
     return (
