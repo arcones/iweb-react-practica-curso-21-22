@@ -76,7 +76,6 @@ const QuizGame = ({ setScore, currentQuiz, setCurrentQuiz, quizzes, setFinished 
     }
 
     const truncate = (question) => {
-        console.log(`truncando ${question}`)
         return question.substring(0, 500)
     }
 
@@ -93,6 +92,13 @@ const QuizGame = ({ setScore, currentQuiz, setCurrentQuiz, quizzes, setFinished 
     let quizButtons = quizzes.map((item, index) => {
         return <Button key={index} onClick={() => renderSpecificQuiz(index)}>{index + 1}</Button>
     })
+
+    const onEnterKey = (event) => {
+        if (event.key === "Enter") {
+            currentQuiz === (quizzes.length - 1) ? submit() : next()
+        }
+    }
+
     return (
         <div className="container">
             <div onLoad={updateButtons} className="contained-text">
@@ -105,7 +111,7 @@ const QuizGame = ({ setScore, currentQuiz, setCurrentQuiz, quizzes, setFinished 
                 <div>
                     <img src={getAttachmentURLIfPossible()} onError={e => fallbackAttachmentPhoto(e)} alt='' width="600" height="300" />
                 </div>
-                <input type="response" id="answer" placeholder={contextValue.dictionary.quiz_answer} />
+                <input type="response" id="answer" onKeyPress={event => onEnterKey(event)} placeholder={contextValue.dictionary.quiz_answer} />
                 <div>
                     <p>{contextValue.dictionary.quiz_author}{getAuthorNameIfPossible()}</p>
                     <img src={getAuthorPhotoIfPossible()} onError={e => fallbackAuthorPhoto(e)} alt='' width="50" height="50" />
