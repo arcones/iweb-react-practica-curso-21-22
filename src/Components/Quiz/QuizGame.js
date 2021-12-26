@@ -121,7 +121,7 @@ const QuizGame = ({ setScore, currentQuiz, setCurrentQuiz, quizzes, setFinished 
                 <div>
                     <img src={getAttachmentURLIfPossible()} onError={e => fallbackAttachmentPhoto(e)} alt='' width="600" height="300" />
                 </div>
-                <input type="response" id="answer" onKeyPress={event => onEnterKey(event)} placeholder={contextValue.dictionary.quiz_answer} />
+                <input id="answer" onKeyPress={event => onEnterKey(event)} placeholder={contextValue.dictionary.quiz_answer} />
                 <div>
                     <p>{contextValue.dictionary.quiz_author}{getAuthorNameIfPossible()}</p>
                     <img src={getAuthorPhotoIfPossible()} onError={e => fallbackAuthorPhoto(e)} alt='' width="50" height="50" />
