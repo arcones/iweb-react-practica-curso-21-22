@@ -14,6 +14,16 @@ const QuizGame = ({ setScore, currentQuiz, setCurrentQuiz, quizzes, setFinished,
     const [timeLeft, setTimeLeft] = useState(60)
     const [inputs, setInputs] = useState(new Map())
 
+    const actionButtons = {
+        width: '150px',
+        height: '35px',
+        backgroundColor: '#18363E',
+        color: '#93C4D1',
+        borderRadius: '5px',
+        fontSize: '20px',
+        fontFamily: 'Arial Rounded MT Bold'
+      }
+
     const answerSave = () => {
         var answersCopy = answers
         answersCopy[quizzes[currentQuiz].id] = document.getElementById("answer").value.toLowerCase()
@@ -91,7 +101,17 @@ const QuizGame = ({ setScore, currentQuiz, setCurrentQuiz, quizzes, setFinished,
     }
 
     let quizButtons = quizzes.map((item, index) => {
-        return <Button key={index} onClick={() => renderSpecificQuiz(index)}>{index + 1}</Button>
+        const squareStyle = {
+            width: '50px',
+            height: '50px',
+            backgroundColor: '#18363E',
+            color: '#93C4D1',
+            borderRadius: '5px',
+            fontSize: '20px',
+            fontFamily: 'Arial Rounded MT Bold'
+          }
+
+        return <Button key={index} style={squareStyle} onClick={() => renderSpecificQuiz(index)}>{index + 1}</Button>
     })
 
     const onEnterKey = (event) => {
@@ -141,11 +161,11 @@ const QuizGame = ({ setScore, currentQuiz, setCurrentQuiz, quizzes, setFinished,
                     <p>{contextValue.dictionary.quiz_time_remaining}{timeLeft}</p>
                 </div>
                 <div>
-                    <Button onClick={back} disabled={disabledBack}>{contextValue.dictionary.quiz_fwd}</Button>
-                    <Button onClick={next} disabled={disabledNext}>{contextValue.dictionary.quiz_next}</Button>
+                    <Button style={actionButtons} onClick={back} disabled={disabledBack}>{contextValue.dictionary.quiz_fwd}</Button>
+                    <Button style={actionButtons} onClick={next} disabled={disabledNext}>{contextValue.dictionary.quiz_next}</Button>
                 </div>
-                <Button onClick={submit}>{contextValue.dictionary.quiz_submit}</Button>
-                <Button onClick={reboot}>{contextValue.dictionary.quiz_reboot}</Button>
+                <div><Button style={actionButtons} onClick={submit}>{contextValue.dictionary.quiz_submit}</Button></div>
+                <div><Button style={actionButtons} onClick={reboot}>{contextValue.dictionary.quiz_reboot}</Button></div>
             </div>
         </div>
     )
